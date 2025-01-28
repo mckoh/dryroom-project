@@ -32,7 +32,7 @@ def key_value_mapper(row:str) -> tuple:
     second = row.split(";")[1].split("s=")[1].replace('"', "").split(".")
 
     try:
-        return (first, second[3], second[5], second[7], second[9], second[11])
+        return (first, second[3], second[5][2:], second[7][1:], second[9][1:], second[11])
 
     except:
         return (first, second[3], None, None, None, "DataPublishTrigger")
