@@ -10,8 +10,8 @@ from pandas import read_csv
 
 # Set page config
 st.set_page_config(
-    page_title="BMW Dashboard",
-    page_icon="🖥️",
+    page_title="Value Distribution",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -24,6 +24,7 @@ col1, col2 = st.columns(2)
 
 # Data content for sensor display
 data = read_csv("data/preprocessed_data.csv")
+data.dropna(inplace=True)
 
 s_type = data.sensor_type.unique()
 s_select = st.sidebar.selectbox("Errection Location", s_type)
